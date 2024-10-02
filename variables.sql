@@ -1,4 +1,4 @@
-"This File assumes that MIMIC-IV is installed on a local PostgreSQL server, and the buildmimic concepts from the official MIMIC code repository are isntalled.
+"This File assumes that MIMIC-IV is installed on a local PostgreSQL server, and buildmimic files and concepts files from the official MIMIC code repository (https://github.com/MIT-LCP/mimic-iv) are installed.
 
 author: @nikolausschreiber"
 
