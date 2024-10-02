@@ -91,7 +91,7 @@ delir_complete_df['mechanical_ventilation_before'] = delir_complete_df.apply(
 )
 
 #load sepsis data and merge with main dataframe 
-sepsis = pd.read_csv('~/sepsis_copy.csv')
+sepsis = pd.read_csv('~/sepsis.csv')
 
 delir_complete_df = pd.merge(delir_complete_df, sepsis[['subject_id', 'sepsis3']], on='subject_id', how='left')
 
