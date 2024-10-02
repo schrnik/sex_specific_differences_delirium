@@ -23,7 +23,7 @@ delirium_ids = items[items['label'].str.contains('delirium', na=False)]
 relevant_ids = pd.concat([cam_ids, delirium_ids])
 
 # Initialize a DataFrame to store the delirium-related chart events
-delirium_testing_rows = pd.read_csv("~/Desktop/mimic-iv-3.0/Manuscript/Code/chartevents.csv", nrows=0)
+delirium_testing_rows = pd.read_csv("~/chartevents.csv", nrows=0)
 
 # Load chartevents.csv in chunks to handle large file size
 for chunk in pd.read_csv("~/Desktop/mimic-iv-3.0/icu/chartevents.csv", 
