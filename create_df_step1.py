@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 # Load D_ITEMS file to get the ITEMID and LABEL columns for MIMIC-IV
-items = pd.read_csv("~/Desktop/mimic-iv-3.0/Manuscript/Code/d_items.csv", usecols=['itemid', 'label'])
+items = pd.read_csv("~/d_items.csv", usecols=['itemid', 'label'])
 
 # Make LABEL column lowercase
 items['label'] = items['label'].apply(lambda s: s.lower() if isinstance(s, str) else s)
