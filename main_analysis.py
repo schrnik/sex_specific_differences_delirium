@@ -71,7 +71,7 @@ delir_complete_df['gender'] = delir_complete_df['gender'].apply(lambda x: 0 if x
 
 #import and merge mechanical ventilation dataset 
 
-mv = pd.read_csv('~/Desktop/mimic-iv-3.0/Manuscript/Code/ventilation_copy.csv')
+mv = pd.read_csv('~/ventilation_copy.csv')
 mv_merged = pd.merge(sapsii, mv, on='stay_id', how='inner')
 mv_merged = mv_merged.drop_duplicates(subset='subject_id', keep='first')
 mv_ids = mv_merged[['subject_id', 'starttime_x', 'endtime_x', 'ventilation_status']]
@@ -91,7 +91,7 @@ delir_complete_df['mechanical_ventilation_before'] = delir_complete_df.apply(
 )
 
 #load sepsis data and merge with main dataframe 
-sepsis = pd.read_csv('~/Desktop/mimic-iv-3.0/Manuscript/Code/sepsis_copy.csv')
+sepsis = pd.read_csv('~/sepsis_copy.csv')
 
 delir_complete_df = pd.merge(delir_complete_df, sepsis[['subject_id', 'sepsis3']], on='subject_id', how='left')
 
