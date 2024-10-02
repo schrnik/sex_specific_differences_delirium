@@ -1,6 +1,6 @@
 """
 This script produces the main analyses and plots of the paper. 
-It uses MIMICIV_complete_dataset.csv as well as the dataframes  extracted using SQL queries provided by the official MIMIC GitHub repository.
+It uses MIMICIV_complete_dataset.csv as well as the dataframes extracted using SQL queries provided by the official MIMIC GitHub repository (see vairables.sql).
 
 @author: nikolausschreiber
 """
@@ -45,15 +45,15 @@ delir_complete_df['mortality_within_30_days'] = np.where(
 )
 
 # Load Charlson Comorbidity, APSIII and SAPS II datasets, and merge with the main dataset
-charlson = pd.read_csv('~/charlson_copy.csv')
-sapsii = pd.read_csv('~/sapsii_copy.csv')
-apache = pd.read_csv('~/apsiii_copy.csv')
+charlson = pd.read_csv('~/charlson.csv')
+sapsii = pd.read_csv('~/sapsii.csv')
+apsiii = pd.read_csv('~/apsiii.csv')
 
 # Merge Charlson, SAPS II, and APSIII data
 delir_complete_df = pd.merge(delir_complete_df, charlson, on='subject_id', how='inner')
 delir_complete_df = pd.merge(delir_complete_df, sapsii, on='subject_id', how='inner')
-apache.drop(['hadm_id', 'stay_id'], axis=1, inplace=True)  # Drop unnecessary columns
-delir_complete_df = pd.merge(delir_complete_df, apache, on='subject_id', how='inner')
+apsiii.drop(['hadm_id', 'stay_id'], axis=1, inplace=True)  # Drop unnecessary columns
+delir_complete_df = pd.merge(delir_complete_df, apsiii, on='subject_id', how='inner')
 delir_complete_df = delir_complete_df.drop_duplicates(subset='subject_id', keep='first')
 
 #Create a follow-up time column (capped at 30 days)
@@ -71,7 +71,7 @@ delir_complete_df['gender'] = delir_complete_df['gender'].apply(lambda x: 0 if x
 
 #import and merge mechanical ventilation dataset 
 
-mv = pd.read_csv('~/ventilation_copy.csv')
+mv = pd.read_csv('~/ventilation.csv')
 mv_merged = pd.merge(sapsii, mv, on='stay_id', how='inner')
 mv_merged = mv_merged.drop_duplicates(subset='subject_id', keep='first')
 mv_ids = mv_merged[['subject_id', 'starttime_x', 'endtime_x', 'ventilation_status']]
