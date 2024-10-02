@@ -26,14 +26,14 @@ SET search_path TO mimiciv_derived
 \copy apsiii TO 'apsiii.csv' WITH CSV HEADER
 
 #SAPSII
-\copy sapsii TO 'sapsii_copy.csv' WITH CSV HEADER
+\copy sapsii TO 'sapsii.csv' WITH CSV HEADER
 
 #Sepsis
-\copy sepsis3 TO 'sepsis_copy.csv' WITH CSV HEADER
+\copy sepsis3 TO 'sepsis.csv' WITH CSV HEADER
 
 #Ventilation
-\copy ventilation TO 'ventilation_copy.csv' WITH CSV HEADER
+\copy ventilation TO 'ventilation.csv' WITH CSV HEADER
 
 #Charlson Comorbidity Index
-\copy charlson TO 'charlson_copy.csv' WITH CSV HEADER
+\copy charlson TO 'charlson.csv' WITH CSV HEADER
 
