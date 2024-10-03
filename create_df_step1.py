@@ -26,7 +26,7 @@ relevant_ids = pd.concat([cam_ids, delirium_ids])
 delirium_testing_rows = pd.read_csv("~/chartevents.csv", nrows=0)
 
 # Load chartevents.csv in chunks to handle large file size
-for chunk in pd.read_csv("~/Desktop/mimic-iv-3.0/icu/chartevents.csv", 
+for chunk in pd.read_csv("~/chartevents.csv", 
                          chunksize=1000000, 
                          dtype={'itemid': 'int', 'subject_id': 'int', 'charttime': 'str', 'value': 'str'}, 
                          low_memory=False):
