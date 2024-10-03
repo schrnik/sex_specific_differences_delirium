@@ -20,8 +20,8 @@ import matplotlib.pyplot as plt
 
 
 # Load the datasets
-delir = pd.read_csv('~/MIMICIV_complete_dataset.csv')
-demographics = pd.read_csv('~/demographics_with_death_copy.csv')
+delir = pd.read_csv('~/MIMICIV_complete_dataset.csv') #make sure that the path to the file is correctly specified
+demographics = pd.read_csv('~/demographics_with_death_copy.csv') #make sure that the path to the file is correctly specified
 
 # Filter adelirium
 delir = delir[delir['delirium_positive'] == 1]  # Only delirium-positive patients
@@ -45,9 +45,9 @@ delir_complete_df['mortality_within_30_days'] = np.where(
 )
 
 # Load Charlson Comorbidity, APSIII and SAPS II datasets, and merge with the main dataset
-charlson = pd.read_csv('~/charlson.csv')
-sapsii = pd.read_csv('~/sapsii.csv')
-apsiii = pd.read_csv('~/apsiii.csv')
+charlson = pd.read_csv('~/charlson.csv') #make sure that the path to the file is correctly specified
+sapsii = pd.read_csv('~/sapsii.csv') #make sure that the path to the file is correctly specified
+apsiii = pd.read_csv('~/apsiii.csv') #make sure that the path to the file is correctly specified
 
 # Merge Charlson, SAPS II, and APSIII data
 delir_complete_df = pd.merge(delir_complete_df, charlson, on='subject_id', how='inner')
@@ -71,7 +71,7 @@ delir_complete_df['gender'] = delir_complete_df['gender'].apply(lambda x: 0 if x
 
 #import and merge mechanical ventilation dataset 
 
-mv = pd.read_csv('~/ventilation.csv')
+mv = pd.read_csv('~/ventilation.csv') #make sure that the path to the file is correctly specified
 mv_merged = pd.merge(sapsii, mv, on='stay_id', how='inner')
 mv_merged = mv_merged.drop_duplicates(subset='subject_id', keep='first')
 mv_ids = mv_merged[['subject_id', 'starttime_x', 'endtime_x', 'ventilation_status']]
@@ -91,7 +91,7 @@ delir_complete_df['mechanical_ventilation_before'] = delir_complete_df.apply(
 )
 
 #load sepsis data and merge with main dataframe 
-sepsis = pd.read_csv('~/sepsis.csv')
+sepsis = pd.read_csv('~/sepsis.csv') #make sure that the path to the file is correctly specified
 
 delir_complete_df = pd.merge(delir_complete_df, sepsis[['subject_id', 'sepsis3']], on='subject_id', how='left')
 
