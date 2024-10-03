@@ -12,7 +12,7 @@ import numpy as np
 from tqdm import tqdm
 
 # File paths
-input_file = '~/all_delirium_chart_events_mimic_iv_copy.csv'
+input_file = '~/all_delirium_chart_events_mimic_iv_copy.csv' #make sure that the path to the file is correctly specified
 output_file = 'MIMICIV_chart_events_delirium_labels_copy.csv'
 
 # Define the chunk size (adjust based on your system's memory)
