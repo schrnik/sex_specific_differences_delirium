@@ -3,7 +3,7 @@ This file takes the d_items.csv file and the chartevent.csv file from https://ph
 and saves off any rows with delirium testing information from into a csv (all_delirium_chart_events_mimic_iv_copy.csv).
 This file is needed in the next step. 
 
-@author: Nikolaus Schreiber
+@author: nikolausschreiber
 """
 
 # Import necessary libraries
