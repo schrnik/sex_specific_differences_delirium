@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 # Load D_ITEMS file to get the ITEMID and LABEL columns for MIMIC-IV
-items = pd.read_csv("~/d_items.csv", usecols=['itemid', 'label'])
+items = pd.read_csv("~/d_items.csv", usecols=['itemid', 'label']) #make sure that the path to the file is correctly specified
 
 # Make LABEL column lowercase
 items['label'] = items['label'].apply(lambda s: s.lower() if isinstance(s, str) else s)
@@ -26,7 +26,7 @@ relevant_ids = pd.concat([cam_ids, delirium_ids])
 delirium_testing_rows = pd.read_csv("~/chartevents.csv", nrows=0)
 
 # Load chartevents.csv in chunks to handle large file size
-for chunk in pd.read_csv("~/chartevents.csv", 
+for chunk in pd.read_csv("~/chartevents.csv", #make sure that the path to the file is correctly specified
                          chunksize=1000000, 
                          dtype={'itemid': 'int', 'subject_id': 'int', 'charttime': 'str', 'value': 'str'}, 
                          low_memory=False):
