@@ -8,9 +8,9 @@ This file creates 'MIMICIV_complete_dataset.csv' from MIMICIV_chart_events_delir
 import pandas as pd
 
 # Load delirium labels for MIMIC-IV
-del_chart_events = pd.read_csv('~/MIMICIV_chart_events_delirium_labels_copy.csv')
+del_chart_events = pd.read_csv('~/MIMICIV_chart_events_delirium_labels_copy.csv') #make sure that the path to the file is correctly specified
 # Load ICU stays data for MIMIC-IV
-icustays = pd.read_csv("~/icustays.csv", usecols=['subject_id', 'hadm_id', 'stay_id', 'intime', 'outtime', 'los'])
+icustays = pd.read_csv("~/icustays.csv", usecols=['subject_id', 'hadm_id', 'stay_id', 'intime', 'outtime', 'los']) #make sure that the path to the file is correctly specified
 
 #%% Find if patients had delirium, and when they got it.
 # Drop any rows with missing data
