@@ -329,7 +329,8 @@ matched_df = pd.concat([matched_males, females])
 cph_matched = CoxPHFitter()
 cph_matched.fit(matched_df[['mortality_within_30_days', 'followup_time', 'gender']], 
                 duration_col='followup_time', 
-                event_col='mortality_within_30_days')
+                event_col='mortality_within_30_days',
+                robust=True)
 
 # Display the Cox regression summary
 cph_matched.print_summary()
